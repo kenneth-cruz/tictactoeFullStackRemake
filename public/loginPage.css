@@ -1,0 +1,17 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  color: black;
+  background-image: url(./img/gameboardBackground.jpg);
+  background-size: cover;
+}
+img{
+  height: 200px;
+}
+
+#loginHolder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}

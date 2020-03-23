@@ -1,0 +1,15 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-image: url(./img/matrix.gif);
+  background-size: cover;
+  color: maroon;
+
+}
+img{
+  height: 200px;
+}
+
+h1{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}

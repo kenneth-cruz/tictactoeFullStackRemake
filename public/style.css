@@ -1,7 +1,88 @@
-body{
-  padding-top:80px;
-  word-wrap:break-word;
+*{
+  box-sizing:border-box;
 }
-img{
-  height: 200px;
+
+body{
+  background-size: cover;
+  background: skyblue;
+}
+.messages{
+  list-style: decimal;
+  list-style-position: inside;
+
+}
+
+h1{
+color: green;
+font-family: arial;
+font-size: 50px;
+/* Flexbox work to center the h1 */
+display: flex;
+flex-flow: column;
+justify-content: space-around;
+align-items: center;
+}
+
+table{
+  border: black 2px solid;
+  height: 500px;
+  width: 80%;
+  /* background-color:# */
+  text-align: center;
+}
+
+td{
+  font-size: 10px;
+  border: 1px solid black;
+}
+
+.tableContainer{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.box{
+  width: 33.3333%;
+  font-size: 50px;
+  font-family: arial;
+  background-color: beige;
+}
+p{
+  font-size: 25px;
+  font-family: arial;
+  background-color: yellow;
+}
+
+#reset, #undo{
+  color: red;
+  font-size: 30px;
+  font-family: arial;
+}
+
+.box:hover {
+  background-color: lightblue;
+}
+
+button{
+  border-radius: 10px;
+  width: 30%;
+  background-color: black;
+  color: red;
+}
+
+#logInInfo{
+  font-size: 10px;
+}
+
+#HappyList{
+  display:flex;
+  flex-wrap:wrap;
+  text-align:center;
+}
+#profileInfo{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 26%;
 }

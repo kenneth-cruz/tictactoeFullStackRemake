@@ -1,68 +1,109 @@
 <!doctype html>
 <html>
-<head>
-    <title>21 Savage Fan Site</title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
+  </head>
+  <body>
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
+    <h1> Tic Tac Toe ! </h1>
+<section class="tableContainer">
+<p id="result"></p>
 
-    <div class="row">
 
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+<table id="main">
+  <tr>
+    <td class="box" id="box0"> </td>
+    <td class="box" id="box1"> </td>
+    <td class="box" id="box2"> </td>
 
-                <% if (user.local.email) { %>
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
+  </tr>
+  <tr>
+    <td class="box" id="box3"> </td>
+    <td class="box" id="box4"> </td>
+    <td class="box" id="box5"> </td>
 
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
+  </tr>
+  <tr>
+    <td class="box" id="box6"> </td>
+    <td class="box" id="box7"> </td>
+    <td class="box" id="box8"> </td>
 
-            </div>
-        </div>
-        <div class="col-sm-6">
-          <h3>Messages</h3>
-          <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span><%= messages[i].name %></span>
-              <span><%= messages[i].msg %></span>
-              <span><%= messages[i].thumbUp %></span>
-              <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-              <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-            </li>
+  </tr>
+</table>
+
+<button type="button" name="reset" id="reset">Reset</button>
+<button type="button" name="undo" id="undo">Undo-Move</button>
+
+</section>
+    <!-- <script type="text/javascript" src="js/main.js"></script> -->
+
+
+    <!-- YOUR ACTUAL MESSAGES  -->
+    <section id="HappyList">
+    <div class="col-sm-12">
+      <h3> Account | (X or O) | Wager Amount:  </h3>
+      <ul class="messages">
+          <% for(var i=0; i< messages.length; i++) {%>
+            <% if (user.local.email == messages[i].name) { %>
+              <li class="message">
+                <span><%= messages[i].name%></span>
+                <span><%= messages[i].msg %></span>
+                <span><%= messages[i].thumbUp -= messages[i].thumbDown %></span>
+                <span><i class="fa fa-dollar-sign" aria-hidden="true"></i></span>
+                <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                <span><i id="trophy" class="fas fa-trophy" aria-hidden="true"></i></span>
+                <span><%= messages[i].thumbUp -= messages[i].thumbDown %> dollars bet</span>
+              </li>
+
+
+            <% } %>
           <% } %>
-          </ul>
+      </ul>
+      <span id="winnerTester"></span> <br> <br>
+      <img id="winner" src="" alt="">
+      <h2>Add (X or O) for your following round </h2>
+    <% if (user.local.email) { %>
+      <form action="/messages" method="POST">
+        <input type="text" value="<%= user.local.email %>" name="name">
+        <input type="text" placeholder="X or O" name="msg">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
 
-          <h2>Add a message</h2>
-        <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <input type="text" value="<%= user.local.email %>" name="name">
-            <input type="text" placeholder="message" name="msg">
-            <button type="submit">Submit</button>
-          </form>
+    <% } %>
+
+    <!-- LOCAL INFORMATION -->
+    <section id="profileInfo">
+
+    <div class="col-sm-7">
+      <br>
+        <div class="well">
+            <h3> Your Account Info <span class="fas fa-user-lock"> </span> </h3>
+
+            <% if (user.local.email) { %>
+                <p id ="logInInfo">
+                    <strong>id</strong>: <%= user._id %><br>
+                    <strong>email</strong>: <%= user.local.email %><br>
+                    <strong>password</strong>: <%= user.local.password %>
+                </p>
+
+                <a href="/unlink/local" class="btn btn-default">Unlink</a>
+            <% } else { %>
+                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+            <% } %>
+
         </div>
-        <% } %>
-
-</div>
+    </div>
+    </section>
 
 <script src="main.js"></script>
-
-</body>
+  </body>
 </html>

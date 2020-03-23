@@ -1,0 +1,11 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  color: brown;
+  background-image: url(./img/pacman2.gif);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+img{
+  height: 200px;
+}
